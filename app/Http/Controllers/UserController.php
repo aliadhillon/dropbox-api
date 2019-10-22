@@ -23,11 +23,9 @@ class UserController extends Controller
 
         $user = Auth::user();
 
-        $avatarName = $user->id . '_avatar' . time() . '.' . request()->avatar->getClientOriginalExtension();
+        // $avatarName = $user->id . '_avatar' . time() . '.' . request()->avatar->getClientOriginalExtension();
 
-        $request->avatar->storeAs('avatars', $avatarName);
-
-        $user->avatar = $avatarName;
+        $user->avatar = $request->avatar->store('avatars');
         $user->save();
 
         return back()

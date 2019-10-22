@@ -31,7 +31,7 @@
             <div class="profile-header-container">
                 <div class="profile-header-img">
                     @if ($user->avatar)
-                        <img class="rounded-circle" src="{{ Storage::url('avatars/' . $user->avatar) }}" />
+                        <img class="rounded-circle" src="{{ Storage::url($user->avatar) }}" />
                     @endif
                     <!-- badge -->
                     <div class="rank-label-container">
