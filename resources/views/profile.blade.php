@@ -31,7 +31,7 @@
             <div class="profile-header-container">
                 <div class="profile-header-img">
                     @if ($user->avatar)
-                        <img class="rounded-circle" src="/storage/avatars/{{ $user->avatar }}" />
+                        <img class="rounded-circle" src="{{ Storage::url('avatars/' . $user->avatar) }}" />
                     @endif
                     <!-- badge -->
                     <div class="rank-label-container">
@@ -42,7 +42,7 @@
 
         </div>
         <div class="row justify-content-center">
-            <form action="/profile" method="post" enctype="multipart/form-data">
+            <form action="{{ route('profile.upload') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <input type="file" class="form-control-file" name="avatar" id="avatarFile" aria-describedby="fileHelp">
